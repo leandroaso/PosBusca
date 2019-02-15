@@ -1,0 +1,36 @@
+﻿@model BuscaRua.Models.Rua
+
+@{
+                /**/
+
+                ViewBag.Title = "Index";
+
+                var bairros = (List<BuscaRua.Models.Bairro>)ViewBag.Bairros;
+}
+
+<h2>Cadastro de bairros</h2>
+
+@using (Html.BeginForm("Novo", "Rua", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Bairros</label>
+        <select class="form-control" name="PartitionKey">
+            @foreach (var bairro in bairros)
+            {
+                <option value="@bairro.RowKey">@bairro.Nome</option >
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(b => b.Nome)
+        @Html.TextBoxFor(b => b.Nome, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(b => b.CEP)
+        @Html.TextBoxFor(b => b.CEP, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+}

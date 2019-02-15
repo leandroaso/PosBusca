@@ -1,0 +1,39 @@
+﻿@model  BuscaRua.Models.Cidade
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Cadastro</h2>
+
+@using (Html.BeginForm("Novo", "Cidade", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(c => c.Nome)
+        @Html.TextBoxFor(c => c.Nome, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+
+        @Html.LabelFor(c => c.Descricao)
+        @Html.TextAreaFor(c => c.Descricao, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+
+        @Html.LabelFor(c => c.Populacao)
+        @Html.TextBoxFor(c => c.Populacao, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+}
+
+
+@*@using (Html.BeginForm("FormTwo", "Form", FormMethod.Post))
+    {
+        @Html.TextBoxFor(m => m.TextBoxStringData)
+        @Html.CheckBoxFor(model => model.CheckboxData)
+        @Html.TextBoxFor(model => model.TextBoxIntData)
+
+        <input type="submit" value="Submit strongly type synchronous form" />
+    }*@

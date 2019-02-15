@@ -1,0 +1,74 @@
+﻿@using Newtonsoft.Json;
+@{
+
+    ViewBag.Title = "Index";
+    var Cidades = (List<BuscaRua.Models.Cidade>)ViewBag.Cidades;
+}
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2>Selecione seu endereco</h2>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label>Cidade</label>
+                    <select class="form-control" id="select_cidade" name="PartitionKey">
+                        @foreach (var cidade in Cidades)
+                        {
+                            <option value="@cidade.RowKey" json="@JsonConvert.SerializeObject(cidade)">@cidade.Nome</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>bairro</label>
+                    <select class="form-control" id="select_bairro" name="PartitionKey">
+                        <option value="">Selecione</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Rua</label>
+                    <select class="form-control" id="select_rua" name="PartitionKey">
+                        <option value="">Selecione</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="panel panel-default" id="resultado_pesquisa">
+            <div class="panel-heading">
+                <h2>Resultado da pesquisa</h2>
+            </div>
+            <div class="panel-body">
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <label>Cidade</label>
+                        </div>
+                        <div class="panel-body">
+                            <p class="cidade"></p>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <label>Bairro</label>
+                        </div>
+                        <div class="panel-body">
+                            <p class="bairro"></p>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <label>Rua</label>
+                        </div>
+                        <div class="panel-body">
+                            <p class="Rua"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
