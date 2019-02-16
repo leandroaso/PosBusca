@@ -14,9 +14,10 @@
                 <div class="form-group">
                     <label>Cidade</label>
                     <select class="form-control" id="select_cidade" name="PartitionKey">
+                        <option value="">Selecione</option>
                         @foreach (var cidade in Cidades)
                         {
-                            <option value="@cidade.RowKey" json="@JsonConvert.SerializeObject(cidade)">@cidade.Nome</option>
+                            <option value="@cidade.RowKey" Nome="@cidade.Nome" Descricao="@cidade.Descricao" Populacao="@cidade.Populacao">@cidade.Nome</option>
                         }
                     </select>
                 </div>
@@ -64,7 +65,7 @@
                             <label>Rua</label>
                         </div>
                         <div class="panel-body">
-                            <p class="Rua"></p>
+                            <p class="rua"></p>
                         </div>
                     </div>
                 </div>
