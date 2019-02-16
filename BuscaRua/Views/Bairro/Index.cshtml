@@ -6,12 +6,12 @@
     var Cidades = (List<BuscaRua.Models.Cidade>)ViewBag.Cidades;
 }
 
-<h2>Cadastro</h2>
+<h2>Cadastro de bairros</h2>
 
 @using (Html.BeginForm("Novo", "Bairro", FormMethod.Post))
 {
     <div class="form-group">
-        <label>Cidade</label>
+        <label>Bairro</label>
         <select class="form-control" name="PartitionKey">
             @foreach (var cidade in Cidades)
             {
